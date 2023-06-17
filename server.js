@@ -6,13 +6,18 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const nodejob = require("./helpers/nodejob");
+const parse=require("parse/node");
+
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
   },
 });
-
+const APP_ID="ezQUu5baN10R0J8Vdrv4VoNR6ew3lc7iaO8y2RZq";                      //Application ID to connect to back4app
+const JS_KEY="eRpoXJIO3PipbUzfF6GTPDggF9eMcdjbVeJAfS0H";                      //js id to connect to back4app
+Parse.initialize("APP_ID","JS_KEY");
+Parse.serverURL = 'https://parseapi.back4app.com/'
 // import of routes
 const authRoutes = require("./routes/auth");
 const examRoutes = require("./routes/exam");
