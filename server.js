@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const nodejob = require("./helpers/nodejob");
-const parse=require("parse/node");
+const Parse=require("parse/node");
 
 const io = require("socket.io")(server, {
   cors: {
