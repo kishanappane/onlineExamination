@@ -6,14 +6,15 @@ const { ObjectId } = mongoose.Schema;
 var userSchema = new mongoose.Schema(
   {
     name: {
-      usertype:{
-        type:String,
-        enum:['candidate','company'],
-      },
       type: String,
       required: true,
       maxlength: 32,
       trim: true,
+    },
+    usertype: {
+      type: String,
+      enum: ['candidate', 'company'],
+      required: true,
     },
     email: {
       type: String,
@@ -35,7 +36,7 @@ var userSchema = new mongoose.Schema(
       {
         examid: {
           type: ObjectId,
-          ref: "Exam",
+          ref: 'Exam',
         },
       },
     ],
@@ -43,7 +44,7 @@ var userSchema = new mongoose.Schema(
       {
         examid: {
           type: ObjectId,
-          ref: "Exam",
+          ref: 'Exam',
         },
       },
     ],
@@ -51,14 +52,14 @@ var userSchema = new mongoose.Schema(
       {
         examid: {
           type: ObjectId,
-          ref: "Exam",
+          ref: 'Exam',
         },
-        answerid: { type: ObjectId, ref: "Answer" },
+        answerid: { type: ObjectId, ref: 'Answer' },
       },
     ],
   },
   { timestamps: true }
-);
+)
 
 userSchema
   .virtual("password")
