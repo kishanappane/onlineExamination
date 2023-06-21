@@ -6,7 +6,6 @@ var expressJwt = require("express-jwt");
 
 exports.signup = (req, res) => {
   const errors = validationResult(req);
-
   if (!errors.isEmpty()) {
     return res.status(422).json({
       success: false,
@@ -62,9 +61,9 @@ exports.signin = (req, res) => {
       res.cookie("token", token, { expire: new Date() + 9999 });
 
       //send response to front end
-      const { _id, name, email, userinfo } = user;
+      const { _id, name, email, userinfo, usertype } = user
       return res.json({
-        data: { token, user: { _id, name, email, userinfo } },
+        data: { token, user: { _id, name, email, userinfo,usertype } },
         message: "Sign In Success",
         success: true,
       });
